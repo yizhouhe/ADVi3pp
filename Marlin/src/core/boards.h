@@ -93,7 +93,7 @@
 #define BOARD_RAMPS_DAGOMA            1137  // Dagoma F5
 #define BOARD_FYSETC_F6_13            1138  // FYSETC F6 1.3
 #define BOARD_FYSETC_F6_14            1139  // FYSETC F6 1.4
-#define BOARD_DUPLICATOR_I3_PLUS      1140  // Wanhao Duplicator i3 Plus
+// @advi3++ various Duplicator board defined below
 #define BOARD_VORON                   1141  // VORON Design
 #define BOARD_TRONXY_V3_1_0           1142  // Tronxy TRONXY-V3-1.0
 #define BOARD_Z_BOLT_X_SERIES         1143  // Z-Bolt X Series
@@ -145,6 +145,11 @@
 #define BOARD_PICA_REVB               1322  // PICA Shield (original version)
 #define BOARD_PICA                    1323  // PICA Shield (rev C or later)
 #define BOARD_INTAMSYS40              1324  // Intamsys 4.0 (Funmat HT)
+
+// @advi3++
+#define BOARD_DUPLICATOR_I3_PLUS_51   9000  // Wanhao Duplicator i3 Plus, mainboard version 5.1
+#define BOARD_DUPLICATOR_I3_PLUS_52C  9001  // Aldi Balco 3D HE180021, mainboard version 5.2C
+#define BOARD_DUPLICATOR_I3_PLUS_54   9002  // Wanhao Duplicator i3 Plus Mark II, mainboard version 5.4
 
 //
 // ATmega1281, ATmega2561
