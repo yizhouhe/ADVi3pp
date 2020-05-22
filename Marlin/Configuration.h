@@ -2152,7 +2152,7 @@
 // Sources should be installed in 'src/lcd/extensible_ui'.
 //
 #define EXTENSIBLE_UI // adi3++
-#define EXTUI_EXAMPLE
+//#define EXTUI_EXAMPLE
 
 //=============================================================================
 //=============================== Graphical TFTs ==============================
