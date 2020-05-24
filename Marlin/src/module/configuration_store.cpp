@@ -394,7 +394,8 @@ typedef struct SettingsDataStruct {
 
 MarlinSettings settings;
 
-uint16_t MarlinSettings::datasize() { return sizeof(SettingsData); }
+// @advi3++ PR candidate
+uint16_t MarlinSettings::datasize() { return sizeof(SettingsData) + ExtUI::getSizeofSettings(); }
 
 /**
  * Post-process after Retrieve or Reset
@@ -1323,6 +1324,10 @@ void MarlinSettings::postprocess() {
         _FIELD_TEST(extui_data);
         EEPROM_WRITE(extui_data);
       }
+      // @advi3++ PR candidate
+      {
+          ExtUI::onStoreSettingsEx(persistentStore.write_data, eeprom_index, working_crc);
+      }
     #endif
 
     //
@@ -2183,6 +2188,10 @@ void MarlinSettings::postprocess() {
           _FIELD_TEST(extui_data);
           EEPROM_READ(extui_data);
           if (!validating) ExtUI::onLoadSettings(extui_data);
+        }
+        // @advi3++ PR candidate
+        {
+            if(!validating) ExtUI::onLoadSettingsEx(persistentStore.read_data, eeprom_index, working_crc);
         }
       #endif
 
