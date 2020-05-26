@@ -432,6 +432,11 @@ volatile bool Temperature::raw_temps_ready = false;
       adaptive_fan_slowing = false;
     #endif
 
+    // @advi3++ PR candidate
+    #if ENABLED(EXTENSIBLE_UI)
+      ExtUI::onPidTuningProgress(0, ncycles);
+    #endif
+
     // PID Tuning loop
     while (wait_for_heatup) {
 
@@ -468,6 +473,10 @@ volatile bool Temperature::raw_temps_ready = false;
 
         if (!heating && current_temp < target) {
           if (ELAPSED(ms, t1 + 5000UL)) {
+            // @advi3++ PR candidate
+            #if ENABLED(EXTENSIBLE_UI)
+              ExtUI::onPidTuningProgress(cycles, ncycles);
+            #endif
             heating = true;
             t2 = ms;
             t_low = t2 - t1;
@@ -537,6 +546,9 @@ volatile bool Temperature::raw_temps_ready = false;
         #if HAS_TEMP_SENSOR
           print_heater_states(isbed ? active_extruder : heater);
           SERIAL_EOL();
+          #if ENABLED(EXTENSIBLE_UI)
+            ExtUI::onPidTuningReportTemp(isbed ? active_extruder : heater);
+          #endif
         #endif
         next_temp_ms = ms + 2000UL;
 
