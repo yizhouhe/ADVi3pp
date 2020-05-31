@@ -1039,6 +1039,11 @@ namespace ExtUI {
     return (planner.movesplanned() || isPrintingFromMedia() || IFSD(IS_SD_PRINTING(), false));
   }
 
+  // @advi3++ PR candidate
+  bool isPrintingPaused() {
+    return printingIsPaused();
+  }
+
   bool isMediaInserted() {
     return IFSD(IS_SD_INSERTED() && card.isMounted(), false);
   }
