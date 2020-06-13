@@ -1597,3 +1597,12 @@ void MarlinUI::update() {
   }
 
 #endif // !HAS_DISPLAY
+
+
+#if ENABLED(MATERIAL_PRESET_SUPPORT)
+
+// Initialized by settings.load()
+int16_t MarlinUI::preheat_hotend_temp[NB_MATERIAL_PRESET], MarlinUI::preheat_bed_temp[NB_MATERIAL_PRESET];
+uint8_t MarlinUI::preheat_fan_speed[NB_MATERIAL_PRESET];
+
+#endif

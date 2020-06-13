@@ -466,9 +466,6 @@ public:
       static constexpr int8_t manual_move_e_index = 0;
     #endif
 
-    static int16_t preheat_hotend_temp[2], preheat_bed_temp[2];
-    static uint8_t preheat_fan_speed[2];
-
     // Select Screen (modal NO/YES style dialog)
     static bool selection;
     static void set_selection(const bool sel) { selection = sel; }
@@ -542,6 +539,11 @@ public:
     static constexpr bool on_status_screen() { return true; }
     FORCE_INLINE static void run_current_screen() { status_screen(); }
 
+  #endif
+
+  #if ENABLED(MATERIAL_PRESET_SUPPORT)
+    static int16_t preheat_hotend_temp[NB_MATERIAL_PRESET], preheat_bed_temp[NB_MATERIAL_PRESET];
+    static uint8_t preheat_fan_speed[NB_MATERIAL_PRESET];
   #endif
 
   #define LCD_HAS_WAIT_FOR_MOVE EITHER(DELTA_CALIBRATION_MENU, DELTA_AUTO_CALIBRATION) || (ENABLED(LCD_BED_LEVELING) && EITHER(PROBE_MANUALLY, MESH_BED_LEVELING))

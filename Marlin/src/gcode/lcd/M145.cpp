@@ -22,7 +22,7 @@
 
 #include "../../inc/MarlinConfig.h"
 
-#if HOTENDS && HAS_LCD_MENU
+#if ENABLED(MATERIAL_PRESET_SUPPORT)
 
 #include "../gcode.h"
 #include "../../lcd/ultralcd.h"

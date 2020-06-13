@@ -654,7 +654,7 @@ private:
     static void M191();
   #endif
 
-  #if HOTENDS && HAS_LCD_MENU
+  #if ENABLED(MATERIAL_PRESET_SUPPORT)
     static void M145();
   #endif
 

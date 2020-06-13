@@ -26,6 +26,7 @@
 
 #include "../../inc/MarlinConfigPre.h"
 
+
 #if HAS_LCD_MENU
 
 #include "menu.h"
@@ -38,10 +39,6 @@
 #if ENABLED(SINGLENOZZLE)
   #include "../../module/tool_change.h"
 #endif
-
-// Initialized by settings.load()
-int16_t MarlinUI::preheat_hotend_temp[2], MarlinUI::preheat_bed_temp[2];
-uint8_t MarlinUI::preheat_fan_speed[2];
 
 //
 // "Temperature" submenu items
