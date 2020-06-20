@@ -672,7 +672,7 @@
 #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#ifdef ADVi3PP_BLTOUCH
+#if ENABLED(BLTOUCH)
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #else
 #define Z_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
@@ -918,10 +918,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-// @advi3++: ADVi3PP_BLTOUCH build uses BLTOUCH so enable it
-#ifdef ADVi3PP_BLTOUCH
-#define BLTOUCH
-#endif
+//#define BLTOUCH
 
 /**
  * Touch-MI Probe by hotends.fr
@@ -1414,7 +1411,7 @@
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
 //
-#if defined(ADVi3PP_BLTOUCH)
+#if ENABLED(BLTOUCH)
 #define Z_SAFE_HOMING
 #endif
 
@@ -2339,7 +2336,7 @@
  * Leave undefined or set to 0 to entirely disable the servo subsystem.
  */
 // @advi3++: BLTouch is like a servo
-#ifdef ADVi3PP_BLTOUCH
+#if ENABLED(BLTOUCH)
 #define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
 #endif
 
