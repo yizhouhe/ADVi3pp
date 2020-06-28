@@ -2174,6 +2174,7 @@
 #define ADVi3PP_UI
 //#define EXTUI_EXAMPLE
 #define HAS_LCD_MENU 1
+#define PROGRESS_SCALE 1U
 
 //=============================================================================
 //=============================== Graphical TFTs ==============================
