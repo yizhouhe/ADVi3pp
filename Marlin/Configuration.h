@@ -1740,7 +1740,7 @@
  *
  */
 // @advi3++: Wanhao i3 Plus printer do have a SD card reader
-#define SDSUPPORT
+#define SDSUPPORT 1
 
 /**
  * SD CARD: SPI SPEED
@@ -2152,11 +2152,6 @@
 //#define DGUS_LCD_UI_FYSETC
 //#define DGUS_LCD_UI_HIPRECY
 
-// @advi3++
-//
-// Mini DGUS Touch Display (without DWIN OS)
-#define DGUS_LCD_UI_MINI
-
 //
 // Touch-screen LCD for Malyan M200 printers
 //
@@ -2172,9 +2167,13 @@
 // Third-party or vendor-customized controller interfaces.
 // Sources should be installed in 'src/lcd/extensible_ui'.
 //
-#define EXTENSIBLE_UI // @adi3++
-#define ADVi3PP_UI // @advi3++
+
+// @advi3++: ADVi3++ UI
+// Mini DGUS Touch Display (without DWIN OS)
+#define EXTENSIBLE_UI
+#define ADVi3PP_UI
 //#define EXTUI_EXAMPLE
+#define HAS_LCD_MENU 1
 
 //=============================================================================
 //=============================== Graphical TFTs ==============================
