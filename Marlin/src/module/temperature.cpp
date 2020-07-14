@@ -408,6 +408,11 @@ volatile bool Temperature::raw_temps_ready = false;
       next_auto_fan_check_ms = next_temp_ms + 2500UL;
     #endif
 
+    // @advi3++ PR candidate
+    #if ENABLED(EXTENSIBLE_UI)
+      ExtUI::onPidTuningProgress(0, ncycles);
+    #endif
+
     if (target > GHV(BED_MAXTEMP - 10, temp_range[heater].maxtemp - 15)) {
       SERIAL_ECHOLNPGM(STR_PID_TEMP_TOO_HIGH);
       #if ENABLED(EXTENSIBLE_UI)
@@ -430,11 +435,6 @@ volatile bool Temperature::raw_temps_ready = false;
 
     #if ENABLED(NO_FAN_SLOWING_IN_PID_TUNING)
       adaptive_fan_slowing = false;
-    #endif
-
-    // @advi3++ PR candidate
-    #if ENABLED(EXTENSIBLE_UI)
-      ExtUI::onPidTuningProgress(0, ncycles);
     #endif
 
     // PID Tuning loop
@@ -475,7 +475,7 @@ volatile bool Temperature::raw_temps_ready = false;
           if (ELAPSED(ms, t1 + 5000UL)) {
             // @advi3++ PR candidate
             #if ENABLED(EXTENSIBLE_UI)
-              ExtUI::onPidTuningProgress(cycles, ncycles);
+              ExtUI::onPidTuningProgress(cycles + 1, ncycles);
             #endif
             heating = true;
             t2 = ms;
