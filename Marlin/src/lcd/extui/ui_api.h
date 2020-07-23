@@ -305,6 +305,7 @@ namespace ExtUI {
   void stopPrint();
   void pausePrint();
   void resumePrint();
+  bool extrudeFilament(float purge_length); // @advi3++
 
   class FileList {
     private:
