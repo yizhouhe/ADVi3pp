@@ -3119,7 +3119,7 @@ void Temperature::tick() {
         #if HOTENDS > 1
           PSTR("E%c " S_FMT), '1' + e
         #else
-          PSTR("E " S_FMT)
+          PSTR("Extruder " S_FMT) // @advi3++: Extruder instead of just "E"
         #endif
         , heating ? GET_TEXT(MSG_HEATING) : GET_TEXT(MSG_COOLING)
       );
