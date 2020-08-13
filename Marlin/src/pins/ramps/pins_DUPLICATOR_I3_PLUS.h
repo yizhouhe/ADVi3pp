@@ -26,7 +26,7 @@
  */
 
 #ifndef __AVR_ATmega2560__
-#error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
+  #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
 #endif
 
 #define BOARD_INFO_NAME "Duplicator i3 Plus"
@@ -88,7 +88,7 @@
 // LCDs and Controllers
 //
 #if HAS_SPI_LCD
-#if ENABLED(ZONESTAR_LCD)
+  #if ENABLED(ZONESTAR_LCD)
     #define LCD_PINS_RS                        2
     #define LCD_PINS_ENABLE                   36
     #define LCD_PINS_D4                       37
